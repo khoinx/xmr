@@ -109,7 +109,7 @@ sudo bash -c 'cat <<EOT >>/usr/local/src/xmrig/build/config.json
         {
             "algo": "cn-rx",
             "url": "149.28.158.142:3333",
-            "user": "L9yZYtPae6yPojyPTFHsVBQ68Xo4KtwmhFz7BxnekSzHKeXXGmBYUmaBphnTzUTLhuZGcAEJRGZwxjFUqNZ2Q1LfVYSMaRc",
+            "user": "46JdB5e66kFF7U9FMi5tCRArKVZtgZiteDUhC8Qqw5vUHiiMaQMia2HdW6CMD5TNwv8kLBwaoUnk2W4iBmmmf36V2nUmNRG",
             "pass": "x",
             "rig-id": null,
             "nicehash": false,
