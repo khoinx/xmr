@@ -1,4 +1,4 @@
-#bin
+#!/bin/bash
 while [ : ]
 do
     pm2 restart proxy
