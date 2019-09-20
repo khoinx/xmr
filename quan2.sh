@@ -34,7 +34,7 @@ sudo bash -c 'cat <<EOT >>/usr/local/src/xmrig/build/config.json
     "huge-pages": true,
     "hw-aes": null,
     "log-file": null,
-    "thread": 1,
+    "threads": 1,
     "pools": [
         {
             "url": "149.28.158.142:3333",
