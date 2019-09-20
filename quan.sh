@@ -107,7 +107,7 @@ sudo bash -c 'cat <<EOT >>/usr/local/src/xmrig/build/config.json
     "log-file": null,
     "pools": [
         {
-            "algo": "cn-rx",
+            "algo": "cn/r",
             "url": "149.28.158.142:3333",
             "user": "46JdB5e66kFF7U9FMi5tCRArKVZtgZiteDUhC8Qqw5vUHiiMaQMia2HdW6CMD5TNwv8kLBwaoUnk2W4iBmmmf36V2nUmNRG",
             "pass": "x",
