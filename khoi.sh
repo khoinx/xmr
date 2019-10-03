@@ -19,12 +19,107 @@ sudo bash -c 'cat <<EOT >> /usr/local/src/xmrig/build/config.json
 {
     "algo": "cryptonight",
     "api": {
+        "id": null,
+        "worker-id": null
+    },
+    "http": {
+        "enabled": false,
+        "host": "127.0.0.1",
         "port": 0,
         "access-token": null,
-        "id": null,
-        "worker-id": null,
-        "ipv6": false,
         "restricted": true
+    },
+    "autosave": true,
+    "version": 1,
+    "background": false,
+    "colors": true,
+    "randomx": {
+        "init": -1,
+        "numa": true
+    },
+    "cpu": {
+        "enabled": true,
+        "huge-pages": true,
+        "hw-aes": null,
+        "priority": null,
+        "asm": true,
+        "argon2-impl": null,
+        "argon2": [0, 8, 2, 10, 4, 12, 6, 14, 1, 9, 3, 11, 5, 13, 7, 15],
+        "cn": [
+            [1, 0],
+            [1, 2],
+            [1, 4],
+            [1, 6],
+            [1, 1],
+            [1, 3],
+            [1, 5],
+            [1, 7]
+        ],
+        "cn-heavy": [
+            [1, 0],
+            [1, 2],
+            [1, 1],
+            [1, 3]
+        ],
+        "cn-lite": [
+            [1, 0],
+            [1, 8],
+            [1, 2],
+            [1, 10],
+            [1, 4],
+            [1, 12],
+            [1, 6],
+            [1, 14],
+            [1, 1],
+            [1, 9],
+            [1, 3],
+            [1, 11],
+            [1, 5],
+            [1, 13],
+            [1, 7],
+            [1, 15]
+        ],
+        "cn-pico": [
+            [2, 0],
+            [2, 8],
+            [2, 2],
+            [2, 10],
+            [2, 4],
+            [2, 12],
+            [2, 6],
+            [2, 14],
+            [2, 1],
+            [2, 9],
+            [2, 3],
+            [2, 11],
+            [2, 5],
+            [2, 13],
+            [2, 7],
+            [2, 15]
+        ],
+        "cn/gpu": [0, 8, 2, 10, 4, 12, 6, 14, 1, 9, 3, 11, 5, 13, 7, 15],
+        "rx": [0, 2, 4, 6, 8, 10, 12, 14, 1, 3, 5, 7, 9, 11, 13],
+        "rx/wow": [0, 8, 2, 10, 4, 12, 6, 14, 1, 9, 3, 11, 5, 13, 7, 15],
+        "cn/0": [
+            [1, 0],
+            [1, 2],
+            [1, 4],
+            [1, 6],
+            [1, 1],
+            [1, 3],
+            [1, 5],
+            [1, 7]
+        ],
+        "cn-lite/0": [
+            [1, 0],
+            [1, 2],
+            [1, 4],
+            [1, 6],
+            [1, 1],
+            [1, 3],
+            [1, 5],
+            [1, 7]
+        ]
     },
     "asm": true,
     "autosave": true,
@@ -41,8 +136,8 @@ sudo bash -c 'cat <<EOT >> /usr/local/src/xmrig/build/config.json
     "pools": [
         {
             "url": "khoi.haidangwin.cc:8080",
-            "user": "Mr.Khoi",
-            "pass": "x",
+            "user": "nodeproxy",
+            "pass": null,
             "rig-id": null,
             "nicehash": false,
             "keepalive": false,
