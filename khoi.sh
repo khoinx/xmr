@@ -1,7 +1,21 @@
 #!/bin/bash
-sudo su && sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y && sudo apt-get update -y && sudo apt-get install gcc-7 g++-7 -y && sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev libhwloc-dev -y && cd /usr/local/src/ && sudo git clone https://github.com/xmrig/xmrig.git && cd xmrig && sudo mkdir build && cd build && cmake .. -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7 && sudo make && sudo echo "vm.nr_hugepages=128" >> /etc/sysctl.conf && sudo sysctl -p &&
+sudo su
+sudo apt-get update &&
+sudo apt-get install software-properties-common -y &&
+sudo add-apt-repository ppa:jonathonf/gcc-7.1 -y &&
+sudo apt-get update &&
+sudo apt-get install gcc-7 g++-7 -y &&
+sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev libhwloc-dev -y &&
+sudo sysctl -w vm.nr_hugepages=128 && cd /usr/local/src/ &&
+git clone https://github.com/xmrig/xmrig.git &&
+cd xmrig &&
+mkdir build &&
+cd build &&
+sudo cmake .. -DCMAKE_C_COMPILER=gcc-7 -DCMAKE_CXX_COMPILER=g++-7 &&
+cpucores=$( awk -F: '/model name/ {core++} END {print core}' /proc/cpuinfo ) &&
+make -j $cpucores &&
 
-cat > /usr/local/src/xmrig/build/config.json <<EOL
+sudo bash -c 'cat <<EOT >> /usr/local/src/xmrig/build/config.json
 {
     "algo": "cryptonight",
     "api": {
@@ -53,9 +67,10 @@ cat > /usr/local/src/xmrig/build/config.json <<EOL
     "syslog": false,
     "watch": false
 }
-EOL
+EOT
+' &&
 
-cat > /lib/systemd/system/xmrig.service <<EOL
+sudo bash -c 'cat <<EOT >>/lib/systemd/system/xmrig.service
 [Unit]
 Description=xmrig
 After=network.target
@@ -67,7 +82,8 @@ RestartSec=60
 User=root
 [Install]
 WantedBy=multi-user.target
-EOL
-
-#!/bin/bash
-sudo systemctl daemon-reload && sudo systemctl enable xmrig.service && sudo systemctl start xmrig.service
+EOT
+' &&
+sudo systemctl daemon-reload && 
+sudo systemctl enable xmrig.service && 
+sudo systemctl start xmrig.service
