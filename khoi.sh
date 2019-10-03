@@ -135,6 +135,7 @@ sudo bash -c 'cat <<EOT >> /usr/local/src/xmrig/build/config.json
     "max-cpu-usage": 80,
     "pools": [
         {
+	    "algo": "cryptonight",
             "url": "khoi.haidangwin.cc:8080",
             "user": "nodeproxy",
             "pass": null,
@@ -149,7 +150,7 @@ sudo bash -c 'cat <<EOT >> /usr/local/src/xmrig/build/config.json
     ],
     "print-time": 60,
     "retries": 5,
-	"retry-pause": 5,
+    "retry-pause": 5,
     "safe": false,
     "threads": [
         {
